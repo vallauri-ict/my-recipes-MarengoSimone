@@ -1,4 +1,8 @@
-# MyRecipes
+# Project 2: MyRecipes
+
+## _Stud. Marengo Simone_
+
+That's the second project of the year using Angular. We are developing a project that will allow to fill out the **shopping list** and will contain a collection of recipes for which it will be possible to *consult and modify the details*.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
 
