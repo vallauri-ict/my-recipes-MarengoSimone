@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RecipeModel } from 'src/app/models/recipe.models';
 
 @Component({
@@ -7,6 +7,8 @@ import { RecipeModel } from 'src/app/models/recipe.models';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+  @Output() recipeSelectedInList = new EventEmitter<RecipeModel>()
+
   recipes:RecipeModel[]=[
     new RecipeModel(
       'Spaghetti alla chitarra',
@@ -22,7 +24,7 @@ export class RecipeListComponent implements OnInit {
 
     new RecipeModel(
       'Ravioles al Formaggio',
-      'Ottimi soprattutto in Val Varaita nell variante Ravioles...',
+      'Ottimi soprattutto in Val Varaita nella variante Ravioles...',
       'https://media-cdn.tripadvisor.com/media/photo-s/14/b1/37/d3/ravioles-della-valle.jpg'
     ),
 
@@ -38,7 +40,10 @@ export class RecipeListComponent implements OnInit {
     this.selectedRecipe=this.recipes[0]
    }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onRecipeSelected(recipe:RecipeModel){
+    this.recipeSelectedInList.emit(recipe);
   }
 
 }
