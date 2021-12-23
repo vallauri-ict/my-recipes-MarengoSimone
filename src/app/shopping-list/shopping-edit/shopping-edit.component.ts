@@ -28,7 +28,7 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   clearList(){
-    this.ingredientName = "";
+    this.ingredientName = '';
     this.ingredientAmount = 0;
   }
 

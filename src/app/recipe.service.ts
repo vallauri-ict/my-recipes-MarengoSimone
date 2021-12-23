@@ -15,9 +15,9 @@ export class RecipesService {
   getRecipes(){
     this.dataStorageService.sendGetRequest("recipes")
     .subscribe(data=>{
-      console.log(data);
+      // console.log(data);
       this.recipes = data as RecipeModel[];
-      this.selectedRecipe = this.recipes[0];
+      // this.selectedRecipe = this.recipes[0];
     },
     error=> {
       console.error(error);
