@@ -8,7 +8,7 @@ import { RecipesService } from 'src/app/shared/recipes.service';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  constructor(recipeService:RecipesService) { }
+  constructor(public recipeService:RecipesService) { }
 
   ngOnInit(): void {}
 
