@@ -12,9 +12,8 @@ export class ShoppingListService {
   constructor(private dataStorageService:DataStorageService) { }
 
   getIngredients(){
-    this.dataStorageService.sendGetRequest('shopping-list')
+    this.dataStorageService.getRequest('shopping-list')
     .subscribe(data=>{
-
       this.ingredients = data as IngredientModel[];
     },
     error=> {
@@ -23,20 +22,21 @@ export class ShoppingListService {
   }
 
   addIngredient(ingredient:IngredientModel){
-    let ingredientFound = false;
-    for (const item of this.ingredients) {
-      if(item.name.toLowerCase() == ingredient.name.toLowerCase())
-      {
-        ingredientFound = true;
-        item.amount += ingredient.amount;
-        this.patchIngredient({amount:item.amount},item.id);
-        break;
-      }
-    }
-    if(!ingredientFound)
-    {
+    let data =
+      this.ingredients.find(
+        (aus) => aus.name.toUpperCase() === ingredient.name.toUpperCase()
+      ) ?? null;
+    if (!data) {
       this.ingredients.push(ingredient);
       this.postIngredient(ingredient);
+    } else {
+      this.ingredients.map((aus) => {
+        if (aus.name.toUpperCase() === ingredient.name.toUpperCase()) {
+          aus.amount += ingredient.amount;
+
+          this.patchIngredient({ amount: aus.amount }, aus._id);
+        }
+      });
     }
   }
 
@@ -54,8 +54,8 @@ export class ShoppingListService {
     });
   }
 
-  patchIngredient(ingredient:IngredientModel,id:number){
-    this.dataStorageService.sendPatchRequest('shopping-list/' + id,ingredient)
+  patchIngredient(data:object,id:number){
+    this.dataStorageService.sendPatchRequest('shopping-list/' + id,data)
     .subscribe(data=>{
       console.log(data);
     },

@@ -13,7 +13,7 @@ export class RecipesService {
   constructor(private dataStorageService:DataStorageService) { }
 
   getRecipes(){
-    this.dataStorageService.sendGetRequest("recipes")
+    this.dataStorageService.getRequest("recipes")
     .subscribe(data=>{
       // console.log(data);
       this.recipes = data as RecipeModel[];
