@@ -41,13 +41,17 @@ export class ShoppingListService {
   }
 
   addIngredients(ingredients:IngredientModel[]){
-    this.ingredients.push(...ingredients);
+    // this.ingredients.push(...ingredients);
+    for (const ingredient of ingredients) {
+      this.addIngredient(ingredient);
+    }
   }
 
   postIngredient(ingredient:IngredientModel){
     this.dataStorageService.sendPostRequest('shopping-list',ingredient)
     .subscribe(data=>{
       console.log(data);
+      this.getIngredients();
     },
     error=> {
       console.error(error);

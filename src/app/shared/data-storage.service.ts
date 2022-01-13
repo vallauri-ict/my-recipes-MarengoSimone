@@ -7,8 +7,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class DataStorageService {
-
-  //private REST_API_SERVER = "http://localhost:1337/api/";
   REST_API_SERVER = environment.REST_API_SERVER;
 
   constructor(private httpClient: HttpClient) { }
