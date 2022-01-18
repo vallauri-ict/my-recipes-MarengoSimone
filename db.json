@@ -111,6 +111,31 @@
       "name": "Pepe",
       "amount": 10,
       "id": 6
+    },
+    {
+      "name": "Cacao",
+      "amount": 30,
+      "id": 7
+    },
+    {
+      "name": "Mascarpone",
+      "amount": 250,
+      "id": 8
+    },
+    {
+      "name": "Savoiardi",
+      "amount": 30,
+      "id": 9
+    },
+    {
+      "name": "Lasagne",
+      "amount": 50,
+      "id": 10
+    },
+    {
+      "name": "Besciamella",
+      "amount": 100,
+      "id": 11
     }
   ]
 }
