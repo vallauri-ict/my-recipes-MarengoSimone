@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { RecipesService } from 'src/app/shared/recipes.service';
 import { ShoppingListService } from 'src/app/shared/shopping-list.service';
 
@@ -9,9 +10,21 @@ import { ShoppingListService } from 'src/app/shared/shopping-list.service';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  constructor(public recipeService:RecipesService, private shoppingList:ShoppingListService) { }
+  constructor(
+    public recipeService:RecipesService, 
+    private shoppingList:ShoppingListService,
+    private activatedRoute:ActivatedRoute
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(
+      (params: Params) => {
+          //console.log(params);
+          let recipeId = params['id'];
+          this.recipeService.getRecipe(recipeId);
+      }
+    )
+  }
 
   sendToShoppingList()
   {

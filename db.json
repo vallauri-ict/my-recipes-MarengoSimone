@@ -96,6 +96,21 @@
       "name": "Carote",
       "amount": 25,
       "id": 3
+    },
+    {
+      "name": "Ravioles",
+      "amount": 150,
+      "id": 4
+    },
+    {
+      "name": "Formaggio",
+      "amount": 40,
+      "id": 5
+    },
+    {
+      "name": "Pummarola",
+      "amount": 100,
+      "id": 6
     }
   ]
 }

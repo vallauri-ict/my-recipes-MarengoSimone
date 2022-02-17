@@ -23,4 +23,9 @@ export class RecipesService {
       console.error(error);
     })
   }
+
+  getRecipe()
+  {
+    
+  }
 }
