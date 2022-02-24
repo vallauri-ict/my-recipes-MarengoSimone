@@ -111,6 +111,16 @@
       "name": "Pummarola",
       "amount": 100,
       "id": 6
+    },
+    {
+      "name": "Ravioles",
+      "amount": 150,
+      "id": 7
+    },
+    {
+      "name": "Formaggio",
+      "amount": 40,
+      "id": 8
     }
   ]
 }

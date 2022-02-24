@@ -20,7 +20,7 @@
             placeholder="ingredientName : qta" class="form-control" [(ngModel)]="recipeIngredients"></textarea>
         </div>
         <div class="form-group" style="margin-top: 20px !important;">
-            <input value="SAVE" type="button" class="btn btn-success btn-block" [(ngModel)]="buttonText">
+            <input value="SAVE" type="button" class="btn btn-success btn-block" [(ngModel)]="buttonText" (click)="onSave()">
         </div>
     </div>
     <div class="col-sm-2"></div>
