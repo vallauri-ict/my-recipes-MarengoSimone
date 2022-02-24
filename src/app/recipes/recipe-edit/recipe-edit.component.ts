@@ -33,9 +33,13 @@ export class RecipeEditComponent implements OnInit {
               this.recipeIngredients += ingredient.name + ":" + ingredient.amount + "\n";
             }
           }
+          this.editMode = "edit";
+          this.buttonText = "Save Changes"
         }
         else{
           // add mode
+          this.editMode = "add";
+          this.buttonText = "Add New Recipe"
         }
       }
     )
