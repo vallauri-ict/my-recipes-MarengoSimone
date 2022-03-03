@@ -79,6 +79,22 @@
           "amount": 30
         }
       ]
+    },
+    {
+      "name": "Save Test",
+      "description": "This is just a test for the save!",
+      "imagePath": "",
+      "ingredients": [
+        {
+          "name": "ing1",
+          "amount": 10
+        },
+        {
+          "name": "ing2",
+          "amount": 20
+        }
+      ],
+      "id": 5
     }
   ],
   "shopping-list": [
@@ -116,11 +132,6 @@
       "name": "Ravioles",
       "amount": 150,
       "id": 7
-    },
-    {
-      "name": "Formaggio",
-      "amount": 40,
-      "id": 8
     }
   ]
 }

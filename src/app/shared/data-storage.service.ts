@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IngredientModel } from '../models/ingredient.models';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,10 +13,10 @@ export class DataStorageService {
   public getRequest(endpoint: string) {
     return this.httpClient.get(this.REST_API_SERVER + endpoint);
   }
-  public sendPostRequest(endpoint: string,ingredient:IngredientModel) {
-    return this.httpClient.post(this.REST_API_SERVER + endpoint,ingredient);
+  public sendPostRequest(endpoint: string,data:any) {
+    return this.httpClient.post(this.REST_API_SERVER + endpoint,data);
   }
-  public sendPatchRequest(endpoint: string,data:object) {
+  public sendPatchRequest(endpoint: string,data:any) {
     return this.httpClient.patch(this.REST_API_SERVER + endpoint,data);
   }
   public sendDeleteRequest(endpoint: string) {

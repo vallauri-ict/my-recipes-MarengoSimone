@@ -34,4 +34,28 @@ export class RecipesService {
       console.error(error);
     })
   }
+
+  postRecipe(recipe:RecipeModel)
+  {
+    this.dataStorageService.sendPostRequest("recipes",recipe)
+    .subscribe(data=>{
+      alert("Recipe Saved!");
+      this.getRecipes();
+    },
+    error=> {
+      console.error(error);
+    })
+  }
+
+  patchRecipe(recipeId:any,recipe:RecipeModel)
+  {
+    this.dataStorageService.sendPatchRequest("recipes/" + recipeId,recipe)
+    .subscribe(data=>{
+      alert("Recipe Modified!");
+      this.getRecipes();
+    },
+    error=> {
+      console.error(error);
+    })
+  }
 }

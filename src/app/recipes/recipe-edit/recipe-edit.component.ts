@@ -56,12 +56,11 @@ export class RecipeEditComponent implements OnInit {
     let ingredients = this.manageIngredients(this.recipeIngredients);
     let recipe:RecipeModel = new RecipeModel(this.recipeName,this.recipeDescription,this.recipeImagePath,ingredients);
     if(this.editMode == "add"){
-      // this.recipeService.postRecipe(recipe);
+      this.recipeService.postRecipe(recipe);
     }
     else{
-      // this.recipeService.patchRecipe(this.recipeService.selectedRecipe.id,recipe);
+      this.recipeService.patchRecipe(this.recipeService.selectedRecipe.id,recipe);
     }
-    alert("Recipe Saved");
     this.router.navigate(['/recipes']);
   }
 
