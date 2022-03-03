@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { RecipeModel } from 'src/app/models/recipe.models';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class RecipesService {
   recipes : RecipeModel[] = [];
   selectedRecipe:RecipeModel;
 
-  constructor(private dataStorageService:DataStorageService) { }
+  constructor(private dataStorageService:DataStorageService, private router: Router) { }
 
   getRecipes(){
     this.dataStorageService.getRequest("recipes")
@@ -51,8 +52,20 @@ export class RecipesService {
   {
     this.dataStorageService.sendPatchRequest("recipes/" + recipeId,recipe)
     .subscribe(data=>{
-      alert("Recipe Modified!");
+      this.router.navigate(['/recipes/' + recipeId]);
+    },
+    error=> {
+      console.error(error);
+    })
+  }
+
+  deleteRecipe(recipeId:any)
+  {
+    this.dataStorageService.sendDeleteRequest("recipes/" + recipeId)
+    .subscribe(data=>{
+      alert("Recipe Deleted!");
       this.getRecipes();
+      this.router.navigate(['/recipes']);
     },
     error=> {
       console.error(error);
