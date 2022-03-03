@@ -79,15 +79,32 @@ export class RecipeEditComponent implements OnInit {
   }
 
   base64Image:any = "";
+  imageError: string = "";
+  validate:boolean;
   onSelectFile(event:any)
   {
     if(event.target.files && event.target.files[0]) {
-      let filePath = event.target.files[0];
-      var reader = new FileReader();
-      reader.readAsDataURL(filePath);
-      reader.onload = () =>{
-        this.base64Image = reader.result?.toString();
+      const max_size = 20971520;
+      const allowed_types = ['image/png', 'image/jpeg'];
+      const max_height = 15200;
+      const max_width = 25600;
+
+      if (event.target.files[0].size > max_size) {
+        this.imageError = 'Maximum size allowed is ' + max_size / 1000 + 'Mb';
+        this.validate = false;
       }
+
+      if(this.validate)
+      {
+        let filePath = event.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(filePath);
+        reader.onload = () =>{
+          this.base64Image = reader.result?.toString();
+        }
+      }
+      else
+        return;
     }
   }
 
