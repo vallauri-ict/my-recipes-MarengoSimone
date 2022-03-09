@@ -39,7 +39,11 @@ export class RecipeDetailComponent implements OnInit {
 
   onDeleteRecipe()
   {
-    this.recipeService.deleteRecipe(this.recipeService.selectedRecipe.id);
+    let result = window.prompt("Cancellare la ricetta?","YES");
+    if(result != null)
+    {
+      this.recipeService.deleteRecipe(this.recipeService.selectedRecipe.id);
+    }
   }
 
 }
