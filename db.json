@@ -169,6 +169,21 @@
       "name": "pomodoro",
       "amount": 20,
       "id": 12
+    },
+    {
+      "name": "Lasagne",
+      "amount": 50,
+      "id": 13
+    },
+    {
+      "name": "Pomodoro",
+      "amount": 60,
+      "id": 14
+    },
+    {
+      "name": "Besciamella",
+      "amount": 100,
+      "id": 15
     }
   ]
 }

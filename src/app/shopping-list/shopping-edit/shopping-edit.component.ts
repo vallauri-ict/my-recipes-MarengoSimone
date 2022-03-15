@@ -27,6 +27,11 @@ export class ShoppingEditComponent implements OnInit {
     }
   }
 
+  deleteIngredient()
+  {
+    
+  }
+
   clearList(){
     this.ingredientName = '';
     this.ingredientAmount = 0;
