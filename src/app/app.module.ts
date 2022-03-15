@@ -16,7 +16,6 @@ import { HighlightDirective } from './shared/highlight.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxBootstrapConfirmModule } from 'ngx-bootstrap-confirm';
 
 @NgModule({
@@ -39,7 +38,7 @@ import { NgxBootstrapConfirmModule } from 'ngx-bootstrap-confirm';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    NgxBootstrapConfirmModule
   ],
   providers: [],
   bootstrap: [AppComponent]

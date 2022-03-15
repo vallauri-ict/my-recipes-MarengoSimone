@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgxBootstrapConfirmModule, NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm';
+import {NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm';
 import { RecipesService } from 'src/app/shared/recipes.service';
 import { ShoppingListService } from 'src/app/shared/shopping-list.service';
 
@@ -42,7 +41,16 @@ export class RecipeDetailComponent implements OnInit {
 
   onDeleteRecipe()
   {
-    
+    let options ={
+      title: 'Sure you want to delete this recipe?',
+      confirmLabel: 'Okay',
+      declineLabel: 'Cancel'
+    }
+    this.service.confirm(options).then((res: boolean) => {
+      if (res) {
+        this.recipeService.deleteRecipe(this.recipeService.selectedRecipe.id);
+      }
+    });
   }
 
 }
